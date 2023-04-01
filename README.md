@@ -58,4 +58,4 @@ private static void MyStaticMethod(string platform, string version, string data)
 ```
 
 ## Contact
-For support or any additional feature requests, please report an issue, or [contact me](liortal53@gmail.com) directly.
+For support or any additional feature requests, please report an issue, or conact me directly: liortal53@gmail.com
