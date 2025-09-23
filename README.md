@@ -28,7 +28,7 @@ It works by supplying the name of a static method using the *-executeMethod* arg
 
     Unity -executeMethod MyClass.MyStaticMethod
 
-*MyStaticMethod* must be defined without any arguments, so if the build requires any additional data, it must be extract from the command line arguments inside this method:
+*MyStaticMethod* must be defined without any arguments, so if the build requires any additional data, it must be extracted from the command line arguments inside this method:
 
 ```csharp
 private static void MyStaticMethod()
@@ -58,4 +58,4 @@ private static void MyStaticMethod(string platform, string version, string data)
 ```
 
 ## Contact
-For support or any additional feature requests, please report an issue, or conact me directly: liortal53@gmail.com
+For support or any additional feature requests, please report an issue, or contact me directly: liortal53@gmail.com
