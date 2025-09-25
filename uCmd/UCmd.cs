@@ -20,6 +20,11 @@ public class UCmd
 
         public ArgumentData(string methodName, string[] methodArgs)
         {
+            if (string.IsNullOrEmpty(methodName))
+            {
+                throw new ArgumentNullException("methodName");
+            }
+            
             this.methodName = methodName;
             this.methodArgs = methodArgs ?? new string[0];
         }
