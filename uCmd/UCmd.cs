@@ -180,12 +180,12 @@ public class UCmd
     {
         if (args == null)
         {
-            throw new ArgumentNullException("args", "args parameter should not be null!");
+            throw new ArgumentNullException(nameof(args), "args parameter should not be null!");
         }
 
         if (args.Length < 3)
         {
-            throw new ArgumentException("args", "args should have at least 3 elements!");
+            throw new ArgumentException(nameof(args), "args should contain at leats 3 elements!");
         }
 
         // See if -executeMethod is the last thing in args
@@ -193,10 +193,10 @@ public class UCmd
 
         if (index == -1)
         {
-            throw new ArgumentException("-executeMethod was not found in arguments!");
+            throw new ArgumentException("-executeMethod was not found in the list of arguments!");
         }
 
-        // check that there are enough arguments
+        // Check that there are enough arguments
         if (args.Length < index + 2)
         {
             throw new ArgumentException("Not enough arguments were given! Please run with -executeMethod UCmd.Run [method] [args]");
@@ -212,6 +212,11 @@ public class UCmd
 
     private MethodExecutionData CreateMethodExecutionData(ArgumentData argumentData)
     {
+        if (argumentData == null)
+        {
+            throw new ArgumentException("Ambiguous matches found. More than 1 method matches the passed in arguments!");
+        }
+        
         var assemblies = AppDomain.CurrentDomain.GetAssemblies();
         var staticMethods = assemblies.SelectMany(asm => asm.GetTypes()).SelectMany(t => t.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic));
 
